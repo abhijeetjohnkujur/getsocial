@@ -3,7 +3,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 const expressLayouts = require('express-ejs-layouts');
+const connectDB = require('./config/mongoose');
 
+// Add mongodb database
+connectDB();
 // add layout middleware
 app.use(expressLayouts);
 
