@@ -1,0 +1,24 @@
+{
+  "name": "social_media_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "local": "nodemon",
+    "tail":"npx tailwindcss -i ./assets/css/index.css -o ./assets/css/output.css --watch",
+    "dev": "concurrently \"npm run local\" \"npm run tail\"",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  }
+}
