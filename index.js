@@ -27,5 +27,9 @@ app.use('/', require('./routes/index'));
 // Adding child route folder using middlware
 app.use('/users', require('./routes/users'));
 
+// Extract styles and scripts for sub pages in layout
+app.set('layout extractStyles', true);
+app.set('layout extractScripts', true);
+
 // Server start script
 app.listen(port, (err) => err ? console.log(err) : console.log(`Server is running on port ${port}`));
