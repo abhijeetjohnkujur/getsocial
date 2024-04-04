@@ -9,5 +9,6 @@ router.get('/profile', profileController.profile)
 
 
 router.get('/signup',userController.signup)
+router.get('/signin',userController.signin)
 
 module.exports = router
