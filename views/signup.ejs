@@ -1,5 +1,5 @@
 <div class="w-full flex p-2 justify-center">
-    <form class="shadow-md shadow-fuchsia-700 w-1/3 px-5 py-6 rounded-lg border border-slate-800">
+    <form class="shadow-md shadow-fuchsia-700 w-1/3 px-5 py-6 rounded-lg border border-slate-800" action="/users/create" method="post">
         <h3 class="text-white text-center font-bold text-balance text-4xl uppercase">Social Up</h3>
         <label for="name" class="text-white font-semibold">Name</label>
         <input type="text" id="name" name="name" class="outline-none w-full rounded-xl my-2 px-4 py-2 font-semibold" placeholder="Enter Name" required>
@@ -10,6 +10,9 @@
         <label for="password" class="text-white font-semibold">Password</label>
         <input type="password" id="password" name="password" class="outline-none w-full rounded-xl my-2 px-4 py-2 font-semibold" placeholder="Enter password" required>
 
-        <button type="submit" class="w-full bg-fuchsia-700 text-white font-semibold rounded-xl my-2 px-4 py-2">Sign Up</button>
+        <label for="confirm_password" class="text-white font-semibold">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password" class="outline-none w-full rounded-xl my-2 px-4 py-2 font-semibold" placeholder="Confirm Password" required>
+
+        <input type="submit" class="w-full bg-fuchsia-700 text-white font-semibold rounded-xl my-2 px-4 py-2" value="Sign Up">
     </form>
 </div>

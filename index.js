@@ -4,9 +4,15 @@ const app = express();
 const port = 3000;
 const expressLayouts = require('express-ejs-layouts');
 const connectDB = require('./config/mongoose');
+const cookieParser = require('cookie-parser');
+
 
 // Add mongodb database
 connectDB();
+
+// Add cookie parser
+app.use(cookieParser());
+
 // add layout middleware
 app.use(expressLayouts);
 
