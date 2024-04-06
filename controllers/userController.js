@@ -46,4 +46,34 @@ module.exports.create = (req,res) => {
 // Sign in Logic and create session
 module.exports.createSession = (req,res) => {
 
+    //1.  find the user
+        Users.findOne({email:req.body.email})
+        // handle user found
+        .then((user) => {
+            if(user)
+            {
+              // handle password which don't match
+
+              if(user.password != req.body.password){
+                    return res.redirect('back');
+                }
+
+             //handle session creation
+
+             res.cookie('user_id',user.id);
+             return res.redirect('/users/profile');
+              
+            }
+            else {
+            // handle user not found
+                console.log("User not found");
+                return res.redirect('back');
+            }
+        })
+
+       .catch(err => {
+            console.log(err)
+            return res.redirect('back');
+        }
+        )
 }
