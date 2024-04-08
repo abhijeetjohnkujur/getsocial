@@ -1,5 +1,27 @@
+const Users = require('../models/user');
+
 module.exports.profile = (req,res) => {
-    return res.render('profile', {
-        title: "My Profile"
-    })
+    
+    if(req.cookies.user_id)
+    {
+            Users.findById(req.cookies.user_id)
+            .then((user) => {
+                if(user)
+                {
+                    return res.render('profile', {
+                        title: "Profile",
+                        user: user
+                    })
+                }
+                else
+                {
+                    return res.redirect('/users/signin')
+                }
+            })
+    }
+
+    else
+    {
+        return res.redirect('/users/signin')
+    }
 }

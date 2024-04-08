@@ -1,3 +1,6 @@
 document.addEventListener('DOMContentLoaded',() => {
-    console.log("profile js loaded")
+    const signout = document.getElementById('signout')
+    signout.addEventListener('click',() => {
+        window.location = '/users/signout'
+    })
 })

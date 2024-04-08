@@ -46,6 +46,12 @@ module.exports.create = (req,res) => {
 // Sign in Logic and create session
 module.exports.createSession = (req,res) => {
 
+    // If already signed in
+    if(req.cookies.user_id){
+        console.log("Already signed in");
+        return res.redirect('/users/profile');
+    }
+
     //1.  find the user
         Users.findOne({email:req.body.email})
         // handle user found
@@ -76,4 +82,9 @@ module.exports.createSession = (req,res) => {
             return res.redirect('back');
         }
         )
+}
+
+module.exports.signout = (req,res) => {
+    res.clearCookie('user_id');
+    return res.redirect('/');
 }
