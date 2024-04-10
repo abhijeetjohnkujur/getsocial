@@ -56,12 +56,12 @@ module.exports.createSession = (req,res) => {
 
 // Sign out Logic
 module.exports.signout = (req,res) => {
-    req.logout(
-        (err) => {
-            if(err){
+    req.logout((err) => { 
+        if(err)
+        {
                 console.log(err);
-            }
+        }
+            return res.redirect('/');
         }
     );
-    return res.redirect('/');
 }
