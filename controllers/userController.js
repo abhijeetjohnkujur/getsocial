@@ -2,12 +2,18 @@ const Users = require('../models/user');
 
 
 module.exports.signup = (req,res) => {
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('signup',{
         title: "Sign Up Page"
     })
 }
 
 module.exports.signin = (req,res) => {
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('signin',{
         title: "Sign In Page"
     })
@@ -45,5 +51,17 @@ module.exports.create = (req,res) => {
 
 // Sign in Logic and create session
 module.exports.createSession = (req,res) => {
+    return res.redirect('/');
+}
 
+// Sign out Logic
+module.exports.signout = (req,res) => {
+    req.logout(
+        (err) => {
+            if(err){
+                console.log(err);
+            }
+        }
+    );
+    return res.redirect('/');
 }
