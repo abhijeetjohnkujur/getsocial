@@ -22,7 +22,7 @@ connectDB();
 app.use(cookieParser());
 
 // add layout middleware
-app.use(expressLayouts);
+app.use(expressLayouts); 
 
 //add body parser
 app.use(bodyParser.urlencoded({
