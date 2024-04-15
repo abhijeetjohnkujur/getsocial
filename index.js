@@ -75,8 +75,6 @@ app.use(passport.setAuthenticatedUser);
 // Adding parent route folder using middlware
 app.use('/', require('./routes/index'));
 
-// Adding child route folder using middlware
-// app.use('/users', require('./routes/users'));
 
 
 

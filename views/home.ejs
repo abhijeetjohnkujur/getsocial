@@ -2,7 +2,10 @@
     Welcome to Social Up App
 </h1>
 
-<section>
+<div class="flex flex-col gap-4 justify-center items-center border border-slate-800 my-4 rounded-3xl">
+
+<section class="w-[60%]">
+<% if(locals.user) {%>
     <h4 class="text-white font-semibold text-2xl my-2 uppercase">Posts</h4>
     <form id="" method="post" class="flex flex-col gap-4" action="/posts/create">
         <textarea rows="3" cols="30" name="content" placeholder="Type your post..."
@@ -10,4 +13,27 @@
         ></textarea>
         <input type="submit" value="Post" class="text-white border border-purple-600 rounded-md px-2 py-1 w-24 text-center cursor-pointer font-semibold"/>
     </form>
+    <%}%>
 </section>
+
+<div class="w-[60%] mb-4">
+    <ul>
+        <p class="text-white"> Recent Posts</p>
+        <% posts.forEach((post) => { %>
+            <li class="border border-slate-600 my-2 px-4 py-2 rounded-md">
+                <div class="flex gap-2 font-semibold items-center mb-5">
+                <div class="w-10 h-10 bg-slate-400 rounded-full"></div>
+                <p class="text-white text-sm"><%= post.user.name %></p>
+                <div class="bg-slate-700 w-1 h-1 rounded-full"></div>
+                <p class="text-slate-600 text-sm"><%= post.user.email %></p>
+                <div class="bg-slate-700 w-1 h-1 rounded-full"></div>
+                </div>
+                <p class="text-white">
+                    <%= post.content %>
+                </p>
+            </li>
+        <% }) %>
+    </ul>
+
+</div>
+</div>
