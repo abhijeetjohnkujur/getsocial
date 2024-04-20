@@ -31,9 +31,17 @@
                 <p class="text-white">
                     <%= post.content %>
                 </p>
+
+            <%# post comment form %>
+            <% if(locals.user) {%>
+            <form class="w-full flex flex-col" method="post" action="/comments/create">
+                <textarea rows="1" cols="20" name="comment" placeholder="Add a comment..." class="w-full my-2 bg-purple-950 rounded-xl px-2 py-2 font-semibold placeholder:text-blue-600 text-white border-none focus:outline-none"></textarea>
+                <input type="hidden" name="post" value="<%= post._id %>"/>
+                <input type="submit" value="Post" class="text-white bg-blue-500 rounded-md px-1 py-1 w-20 text-center font-semibold cursor-pointer ml-auto text-xs"/>
+            </form>
+            <%}%>
             </li>
         <% }) %>
     </ul>
-
 </div>
 </div>
