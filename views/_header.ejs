@@ -3,7 +3,11 @@
 
     <ul class="md:flex gap-4 items-center font-semibold">
         <% if (locals.user) { %>
-            <li class="border border-purple-600 rounded-md px-2 py-1 w-20 text-center"><a href="/users/session-signout">Logout</a></li>
+            <li><%= locals.user.name %> | <%= locals.user.email %></li>
+            <li class="w-8 h-8 rounded-full shadow-lg bg-slate-600 border-4 border-purple-600"></li>
+            <li class="border border-purple-600 rounded-md px-2 py-1 w-20 text-center">
+            <a href="/users/session-signout">Logout</a>
+            </li>
         <% } else { %>
         <li class="border border-purple-600 rounded-md px-2 py-1 w-24 text-center"><a href="/users/signin">Login</a></li>
         <li class="border border-purple-600 rounded-md px-2 py-1 w-24 text-center"><a href="/users/signup">SignUp</a></li>
